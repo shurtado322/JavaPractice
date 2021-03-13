@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Functions: Task 1</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <section class="preview">
+
+    </section>
+
+  </body>
+
+  <script>
+
+    let names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+
+    // Choose a random name from an array and print it to a paragraph
+    function chooseName(...arr) {
+        // Get random integer
+        function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+        }
+
+         // Choose a random element from the number of elements in the array
+        let rand = getRandomInt(names.length);
+
+        // Print the chosen random name to a paragraph 
+        output(arr[rand]);
+    }
+
+    // Function that will output chosen name to paragraph
+    function output(value) {
+      const para = document.createElement('p');
+      document.body.appendChild(para);
+      para.textContent = 'Randomly chosen name: ' + value;
+    }
+
+    // Invoke function to choose random name
+    chooseName(...names);
+
+
+  </script>
+
+</html>
