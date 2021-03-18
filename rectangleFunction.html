@@ -37,19 +37,32 @@
 
     let x = 50;
     let y = 60;
+    let a = 120;
+    let b = 160;
     let width = 100;
     let height = 75;
     let color = 'blue';
+    let newWidth = 200;
+    let newHeight = 140;
+    let newColor = 'purple';
 
     // Add your code here
-    function drawCanvas (horizDist, vertDist, width, height, color) {
+    function drawRect (horizDist, vertDist, width, height, color) {
         ctx.fillStyle = color;
         ctx.fillRect(x, y, width, height);
     }
 
-    drawCanvas (x, y, width, height, color);
-    // Clear canvas afterwards
-    context.clearRect(x, y, width, height);
+    drawRect (x, y, width, height, color);
+
+    function draw (x, y, width, height, color) {
+      ctx.clearRect(0, 0, width, height);
+      ctx.beginPath();
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, width, height);
+      ctx.fill();
+    }
+
+    draw(a, b, newWidth, newHeight, newColor);
 
     const section = document.querySelector('section');
   </script>
