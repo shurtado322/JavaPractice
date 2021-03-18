@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
+</head>
+<body>
+
+  Input any number: <input class="numberInput" type="text">
+  <p></p>
+
+  <script>
+    const input = document.querySelector('.numberInput');
+    const para = document.querySelector('p');
+
+    // Input number squared
+    function squared(num) {
+        return num * num;
+    }
+
+    // Input number cubed
+    function cubed(num) {
+        return num * num * num;
+    }
+
+    // Factorial of input number
+    function factorial (num) {
+        if (num < 0) return undefined;
+        if (num == 0) return 1;
+        let x = num - 1;
+        while (x > 1) {
+            num *= x;
+            x--;
+        }
+        return num;
+    }
+
+    // Square root Babylonian method
+    function sqRoot (num) {
+      let start = num;
+      let error = 0.00001;
+
+      while ((start - num / start) > error) {
+        start = (start + num / start) / 2;
+      }
+      console.log(start);
+      return start;  
+    }
+
+    input.onchange = function() {
+        const num = input.value;
+        if (isNaN(num)) {
+            para.textContent = "You need to ener a number!";
+        } 
+        else {
+            para.textContent = num + " squared is: " + squared(num) + ". " + 
+                               num + " cubed is: " + cubed(num) + ". " + 
+                               num + " factorial is: " + factorial(num) + ". " +
+                               num + " square root is: " + sqRoot(num);
+        }
+    }
+
+  </script>
+</body>
+</html>
