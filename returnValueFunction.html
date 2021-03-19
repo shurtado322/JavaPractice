@@ -30,7 +30,7 @@
     }
 
     // Factorial of input number
-    function factorial (num) {
+    function factorial(num) {
         if (num < 0) return undefined;
         if (num == 0) return 1;
         let x = num - 1;
@@ -42,15 +42,19 @@
     }
 
     // Square root Babylonian method
-    function sqRoot (num) {
+    function sqRoot(num) {
       let start = num;
       let error = 0.00001;
-
+      // While loop will iterate until error is within acceptable range defined above
       while ((start - num / start) > error) {
-        start = (start + num / start) / 2;
+        start = (start + num / start) / 2;      // Cuts the distance between start and our num
       }
-      console.log(start);
-      return start;  
+      return start.toFixed(4);  
+    }
+
+    // Circumference of a circle with given radius
+    function circum(radius) {      
+      return (2 * Math.PI * radius).toFixed(4);
     }
 
     input.onchange = function() {
@@ -59,10 +63,12 @@
             para.textContent = "You need to ener a number!";
         } 
         else {
-            para.textContent = num + " squared is: " + squared(num) + ". " + 
-                               num + " cubed is: " + cubed(num) + ". " + 
-                               num + " factorial is: " + factorial(num) + ". " +
-                               num + " square root is: " + sqRoot(num);
+            para.innerHTML = num + " Squared is: " + squared(num) + ".<br />" + 
+                             num + " Cubed is: " + cubed(num) + ".<br />" + 
+                             num + " Factorial is: " + factorial(num) + ".<br />" +
+                             " Square root of " + num + " is: " + sqRoot(num) + ".<br />" +
+                             " Circumference of a circle with a radius of " + 
+                             num + " is : " +  circum(num);  
         }
     }
 
