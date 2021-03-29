@@ -7,6 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        // Get a number fromt he user for upper limit of FizzBuzz
+        let answer = Number(prompt("Please enter the number you would like to FizzBuzz up to: "));
+
+        // Loop from 1 to the user entered number
+        for (let i = 1; i <= answer; i++) {
+            if (i % 15 === 0) {                   // Check if current element is divisible by 3 & 5
+                console.log("FizzBuzz")           // If it is, we print FizzBuzz
+            }   
+            else if (i % 3 === 0) {                // Check to see if current element is divisible by 3
+                console.log("Fizz");              // If it is, we print Fizz            
+            }
+            else if (i % 5 === 0) {               // Check if current element is divisible by 5
+                console.log("Buzz");              // If it is, we print Buzz
+            }                                      
+            else {
+                console.log(i);                   // If not divisible by either, we print the current
+            }                                     // element
+            
+        }
+    </script>
 </body>
 </html>
