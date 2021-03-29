@@ -12,7 +12,8 @@
 </head>
 <body>
 
-  Input any number: <input class="numberInput" type="text">
+  <label>Input any number:</label>
+  <input class="numberInput" type="text">
   <p></p>
 
   <script>
@@ -45,6 +46,7 @@
     function sqRoot(num) {
       let start = num;
       let error = 0.00001;
+
       // While loop will iterate until error is within acceptable range defined above
       while ((start - num / start) > error) {
         start = (start + num / start) / 2;      // Cuts the distance between start and our num
@@ -63,12 +65,17 @@
             para.textContent = "You need to ener a number!";
         } 
         else {
+            if (num == 0) {
+              para.textContent = "Try something other than zero.";
+            }
+            else {
             para.innerHTML = num + " Squared is: " + squared(num) + ".<br />" + 
                              num + " Cubed is: " + cubed(num) + ".<br />" + 
                              num + " Factorial is: " + factorial(num) + ".<br />" +
                              " Square root of " + num + " is: " + sqRoot(num) + ".<br />" +
                              " Circumference of a circle with a radius of " + 
-                             num + " is : " +  circum(num);  
+                             num + " is : " +  circum(num) + ".<br />";
+            }
         }
     }
 
